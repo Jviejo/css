@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Document</title>
+    <style>
+        :root {
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+
+<body>
+</body>
+
+<div id="tabs1" class="p-2">
+    <ul class="flex gap-2 mb-3">
+        <li id="tab1" class="cursor-pointer rounded rounded-md border border-2 border-gray-300 bg-indigo-300 p-3">
+            Categorias
+        </li>
+        <li id="tab2" class="cursor-pointer rounded rounded-md border border-2 border-gray-300 bg-indigo-300 p-3">
+            Productos
+        </li>
+        <li id="tab3" class="cursor-pointer rounded rounded-md border border-2 border-gray-300 bg-indigo-300 p-3">
+            Opiniones
+        </li>
+        </li>
+    </ul>
+    
+    <div id="tab1_content" class=" hidden border rounded border-3 border-gray-300 p-3"> Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Ratione mollitia modi cumque quidem, voluptas suscipit hic libero natus ipsum
+        aliquid nostrum possimus, obcaecati impedit quia recusandae nisi soluta. Consectetur, nihil. </div>
+    <div id="tab2_content" class="hidden border rounded border-3 border-gray-300 p-3"> Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Dolorem, sint.</div>
+    <div id="tab3_content" class="hidden border rounded border-3 border-gray-300 p-3"> Lorem, ipsum dolor sit amet
+        consectetur adipisicing elit. Consequatur est vero quidem possimus provident earum nulla maxime iure laudantium
+        quae. </div>
+</div>
+<script>
+    document.getElementById("tabs1").addEventListener("click", (e) => {
+        var eles = Array.from(document.getElementById("tabs1").getElementsByTagName("div"))
+        eles.forEach(element => {
+            element.classList.remove("block")
+            element.classList.add("hidden")
+        });
+        var ele = document.getElementById(`${e.srcElement.id}_content`)
+        ele.classList.remove("hidden")
+        ele.classList.add("block")
+    })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        :root {}
+
+        body {
+            padding: 0;
+            border: 0;
+            margin-right: 0
+        }
+
+        div>div,
+        div.nav-din {
+            border: thin solid red
+        }
+
+        .layout {
+            display: grid;
+            grid-gap: 2px;
+            grid-template-columns: 5rem 1fr auto;
+            grid-template-rows: 5rem 1fr;
+            grid-template-areas:
+                "header header header"
+                "nav main main"
+                "footer footer footer";
+        }
+
+        .header {
+            grid-area: header
+        }
+
+        .nav {
+            grid-area: nav
+        }
+
+        .aside {
+            grid-area: aside;
+            display: none;
+        }
+
+        .main {
+            grid-area: main;
+            display: grid;
+            grid-gap: 2px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-rows: 400px;
+        }
+
+        .main>div {
+            border: thin solid green;
+            height: 400px;
+        }
+
+        .footer {
+            grid-area: footer
+        }
+
+        .hamburger {
+            display: none
+        }
+
+        .nav-din {
+            display: none
+        }
+
+        @media screen and (max-width: 600px) {
+            .hamburger {
+                display: inline;
+                cursor: pointer
+            }
+
+            .main {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                grid-template-rows: 140px;
+            }
+
+            .nav-din {
+                position: absolute;
+                height: 100vh;
+                display: block;
+                width: 40%;
+                background-color: azure;
+            }
+
+            .layout {
+                height: 100vh;
+                display: grid;
+                grid-gap: 2px;
+                grid-template-columns: 100%;
+                grid-template-rows: 5rem 1fr 5rem;
+                grid-template-areas:
+                    "header header"
+                    "main main"
+                    "footer footer";
+            }
+        }
+
+        @media screen and (min-width: 1400px) {
+            .aside {
+                grid-area: aside;
+                display: block;
+            }
+
+            .layout {
+                display: grid;
+                grid-template-columns: 10% 1fr 1fr 10%;
+                grid-template-rows: 5rem 1fr 5rem;
+                grid-template-areas:
+                    "header header header header"
+                    "nav main main aside"
+                    "footer footer footer footer";
+            }
+        }
+    </style>
+    <script>
+        window.addEventListener('resize', function () {
+            var x = document.getElementById('nav-din');
+            x.style.display = "none";
+        });
+        function toogle(el) {
+            var x = document.getElementById(el);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="nav-din" class="nav-din">
+        <a href="#" onclick="toogle('nav-din')">Close</a>
+    </div>
+    <div class="layout">
+        <div class="header">
+            <a href="#" onclick="toogle('nav-din')" class="hamburger">&#9776;</a>
+            header1
+        </div>
+        <div class="nav" id="nav">nav</div>
+        <div class="main">
+            <div>
+
+                <div class="card p-2">
+
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Item 1</li>
+                        <li class="list-group-item">Item 2</li>
+                        <li class="list-group-item">Item 3</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+               
+
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="footer">footer</div>
+        <div class="aside">aside</div>
+    </div>
+</body>
+
+</html>
